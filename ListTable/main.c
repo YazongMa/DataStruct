@@ -6,7 +6,6 @@
  ************************************************************************/
 
 #include <stdio.h>
-#include <vld.h>
 #include "ListTable.h"
 
 int main()
