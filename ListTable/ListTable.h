@@ -39,10 +39,10 @@ int FindElem(ListTable* L, DataType e);
 /*在线性表L的第pos个位置插入新元素e*/
 int ListInsert(ListTable* L, int pos, DataType e);
 
-/*删除线性表L中第pos个位置的元素, 并用e返回其值*/
-int ListDelete(ListTable* L, int pos, DataType* e);
-
 /*返回线性表L的元素个数 */
 int ListLength(ListTable* L);
+
+/*删除线性表L中第pos个位置的元素, 并用e返回其值 */
+int ListDelete(ListTable* L, int pos, DataType* e);
 
 #endif

@@ -17,8 +17,19 @@ int main()
 
 	for (int i = 1; i <= 10; ++i)
 		ListInsert(pListHead, i, i);
+
+
+	ListInsert(pListHead, 3, 30);
 	PrintList(pListHead);
 
+
+	DataType e;
+	GetElem(pListHead, 3, &e);
+
+	e = 10;
+	int pos = FindElem(pListHead, e);
+
+	ListDelete(pListHead, 11, &e);
 	ClearList(&pListHead);
 
 	return 0;
