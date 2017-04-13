@@ -53,11 +53,9 @@ void ClearList(ListTable** L)
 	ListTable* q = NULL;
 	while (p != NULL)
 	{
-		q = p;
-		p = p->next;
-
-		free(q);
-		q = NULL;
+		q = p->next;
+		free(p);
+		p = q;
 	}
 	*L = NULL;
 }
@@ -87,6 +85,9 @@ int GetElem(ListTable* L, int pos, DataType* e)
 		p = p->next;
 		++cur;
 	}
+
+	if (!p || cur != pos)
+		return 0;
 
 	*e = p->data;
 
@@ -133,19 +134,19 @@ int ListInsert(ListTable* L, int pos, DataType e)
 
 	int cur = 1;
 	ListTable* p = L;
-	while (cur < pos)
+	while (p && cur < pos)
 	{
 		p = p->next;
 		++cur;
 	}
 
+	if (!p || cur > pos)
+		return 0;
+
 	ListTable* o = (ListTable*)calloc(1, sizeof(ListTable));
 	o->data = e;
-	o->next = 0;
-
-	ListTable* q = p->next;
+	o->next = p->next;
 	p->next = o;
-	o->next = q;
 
 	//头结点数据域表示链表长度
 	++L->data;
