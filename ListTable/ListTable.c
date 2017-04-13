@@ -49,15 +49,15 @@ bool ListEmpty(ListTable* L)
 /*清空线性表*/
 void ClearList(ListTable** L)
 {
-	ListTable* pHead = *L;
-	ListTable* pCurN = NULL;
-	while (pHead != NULL)
+	ListTable* p = *L;
+	ListTable* q = NULL;
+	while (p != NULL)
 	{
-		pCurN = pHead;
-		pHead = pHead->next;
+		q = p;
+		p = p->next;
 
-		free(pCurN);
-		pCurN = NULL;
+		free(q);
+		q = NULL;
 	}
 	*L = NULL;
 }
