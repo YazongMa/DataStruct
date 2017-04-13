@@ -32,9 +32,27 @@ void PrintList(ListTable* L)
 	{
 		//头结点不打印
 		p = p->next;
-		printf("[%d] ", p->data);
+		printf("%d ", p->data);
 	}
 
+	printf("\n");
+}
+
+
+/*反向遍历链表*/
+void __rPrintList(ListTable* L)
+{
+	if (L->next == NULL)	
+		return;
+
+	__rPrintList(L->next);
+	printf("%d ", L->next->data);
+}
+
+void rPrintList(ListTable* L)
+{
+	printf("Reverse List : ");
+	__rPrintList(L);
 	printf("\n");
 }
 

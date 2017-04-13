@@ -24,6 +24,9 @@ void InitList(ListTable** L);
 /*遍历链表*/
 void PrintList(ListTable* L);
 
+/*反向遍历链表*/
+void rPrintList(ListTable* L);
+
 /*判断线性表是否为空, 空返回true, 否则false*/
 bool ListEmpty(ListTable* L);
 

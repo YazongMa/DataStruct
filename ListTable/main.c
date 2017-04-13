@@ -18,7 +18,7 @@ int main()
 	for (int i = 1; i <= 10; ++i)
 		ListInsert(pListHead, i, i);
 
-
+	rPrintList(pListHead);
 	ListInsert(pListHead, 3, 30);
 	PrintList(pListHead);
 
