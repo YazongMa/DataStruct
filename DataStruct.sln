@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ListTable", "ListTable\List
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stack", "Stack\Stack.vcxproj", "{BEA85B5A-96CE-4201-B918-3C56F2EAF66A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QueueTest", "QueueTest\QueueTest.vcxproj", "{0FBBE1E0-B577-41E9-85CC-11E16466FD4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +23,10 @@ Global
 		{BEA85B5A-96CE-4201-B918-3C56F2EAF66A}.Debug|Win32.Build.0 = Debug|Win32
 		{BEA85B5A-96CE-4201-B918-3C56F2EAF66A}.Release|Win32.ActiveCfg = Release|Win32
 		{BEA85B5A-96CE-4201-B918-3C56F2EAF66A}.Release|Win32.Build.0 = Release|Win32
+		{0FBBE1E0-B577-41E9-85CC-11E16466FD4B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0FBBE1E0-B577-41E9-85CC-11E16466FD4B}.Debug|Win32.Build.0 = Debug|Win32
+		{0FBBE1E0-B577-41E9-85CC-11E16466FD4B}.Release|Win32.ActiveCfg = Release|Win32
+		{0FBBE1E0-B577-41E9-85CC-11E16466FD4B}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

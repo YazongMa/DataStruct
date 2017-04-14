@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BEA85B5A-96CE-4201-B918-3C56F2EAF66A}</ProjectGuid>
+    <ProjectGuid>{0FBBE1E0-B577-41E9-85CC-11E16466FD4B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Stack</RootNamespace>
+    <RootNamespace>QueueTest</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -79,10 +79,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
-    <ClCompile Include="Stack.c" />
+    <ClCompile Include="QueueTest.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Stack.h" />
+    <ClInclude Include="QueueTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
