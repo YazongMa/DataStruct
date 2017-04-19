@@ -7,8 +7,9 @@
 
 #include <stdio.h>
 #include <vld.h>
-#include "BinaryTree.h"
+#include <string.h>
 
+#include "BinaryTree.h"
 int main()
 {
 	TreeNodePtr T;

@@ -116,7 +116,7 @@ bool TreeEmpty(TreeNodePtr T)
 }
 
 /* 初始条件: 二叉树T存在。操作结果: 返回T的深度 */
-int TreeDepth(TreeNodePtr T)
+DataType TreeDepth(TreeNodePtr T)
 {
 	if (T == NULL)
 		return 0;
@@ -130,13 +130,13 @@ int TreeDepth(TreeNodePtr T)
 }
 
 /* 操作结果: 返回T所指结点的值 */
-int Value(TreeNodePtr T)
+DataType Value(TreeNodePtr T)
 {
 	return T->data;
 }
 
 /* 给T所指结点赋值为value */
-void Assign(TreeNodePtr T, int value)
+void Assign(TreeNodePtr T, DataType value)
 {
 	T->data = value;
 }
@@ -156,9 +156,9 @@ void PreOrderTraverse(TreeNodePtr T)
 void InOrderTraverse(TreeNodePtr T)
 {
 	if (!T) return;
-	PreOrderTraverse(T->lchild);
+	InOrderTraverse(T->lchild);
 	printf("%d ", T->data);
-	PreOrderTraverse(T->rchild);
+	InOrderTraverse(T->rchild);
 }
 
 /* 初始条件: 二叉树T存在 */
@@ -166,7 +166,7 @@ void InOrderTraverse(TreeNodePtr T)
 void PostOrderTraverse(TreeNodePtr T)
 {
 	if (!T) return;
-	PreOrderTraverse(T->lchild);
-	PreOrderTraverse(T->rchild);
+	PostOrderTraverse(T->lchild);
+	PostOrderTraverse(T->rchild);
 	printf("%d ", T->data);
 }

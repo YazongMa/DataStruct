@@ -32,14 +32,14 @@ void InsertTree(TreeNodePtr* T, DataType e);
 bool TreeEmpty(TreeNodePtr T);
 
 /* 初始条件: 二叉树T存在。操作结果: 返回T的深度 */
-int TreeDepth(TreeNodePtr T);
+DataType TreeDepth(TreeNodePtr T);
 
 /* 初始条件: 二叉树T存在，p指向T中某个结点 */
 /* 操作结果: 返回p所指结点的值 */
-int Value(TreeNodePtr T);
+DataType Value(TreeNodePtr T);
 
 /* 给p所指结点赋值为value */
-void Assign(TreeNodePtr T, int value);
+void Assign(TreeNodePtr T, DataType value);
 
 /* 初始条件: 二叉树T存在 */
 /* 操作结果: 前序递归遍历T */
