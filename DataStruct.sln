@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QueueTest", "QueueTest\Queu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tree", "Tree\Tree.vcxproj", "{8D7D9EDD-2970-4835-BE76-7BE02355AB53}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Search", "Search\Search.vcxproj", "{D19536F3-B4A6-4EB6-8595-20FCE7A2A49E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -33,6 +35,10 @@ Global
 		{8D7D9EDD-2970-4835-BE76-7BE02355AB53}.Debug|Win32.Build.0 = Debug|Win32
 		{8D7D9EDD-2970-4835-BE76-7BE02355AB53}.Release|Win32.ActiveCfg = Release|Win32
 		{8D7D9EDD-2970-4835-BE76-7BE02355AB53}.Release|Win32.Build.0 = Release|Win32
+		{D19536F3-B4A6-4EB6-8595-20FCE7A2A49E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D19536F3-B4A6-4EB6-8595-20FCE7A2A49E}.Debug|Win32.Build.0 = Debug|Win32
+		{D19536F3-B4A6-4EB6-8595-20FCE7A2A49E}.Release|Win32.ActiveCfg = Release|Win32
+		{D19536F3-B4A6-4EB6-8595-20FCE7A2A49E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
