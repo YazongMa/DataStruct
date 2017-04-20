@@ -10,8 +10,11 @@
 #include <string.h>
 
 #include "BinaryTree.h"
+
+typedef enum{Link, Thread} PointerTag;
 int main()
 {
+	printf("%d\n", sizeof(PointerTag));
 	TreeNodePtr T;
 	InitTree(&T);
 	InsertTree(&T, 5);
