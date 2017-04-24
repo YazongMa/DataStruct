@@ -15,15 +15,17 @@ int main()
 {
 	TreeNodePtr T;
 	InitTree(&T);
-	InsertTree(&T, 5);
-	InsertTree(&T, 3);
-	InsertTree(&T, 7);
-	InsertTree(&T, 4);
-	InsertTree(&T, 6);
-	InsertTree(&T, 1);
-	InsertTree(&T, 8);
-	InsertTree(&T, 2);
-	InsertTree(&T, 9);
+	InsertTree(&T, 62);
+	InsertTree(&T, 58);
+	InsertTree(&T, 88);
+	InsertTree(&T, 47);
+	InsertTree(&T, 73);
+	InsertTree(&T, 99);
+	InsertTree(&T, 35);
+	InsertTree(&T, 51);
+	InsertTree(&T, 93);
+	InsertTree(&T, 37);
+	DeleteNode(&T, 1);
 	PreOrderTraverse(T);
 	printf("\n");
 	InOrderTraverse(T);

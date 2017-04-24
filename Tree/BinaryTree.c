@@ -69,31 +69,7 @@ void InsertTree(TreeNodePtr* T, DataType e)
 		return;
 	}
 
-	TreeNodePtr root = NULL;
-	if ((*T)->data < e)
-	{
-		if ((*T)->rchild == NULL)
-		{
-			(*T)->rchild = o;
-			return;
-		}
-		root = FindElem((*T)->rchild, e);
-	}
-	else if ((*T)->data > e)
-	{
-		if ((*T)->lchild == NULL)
-		{
-			(*T)->lchild = o;
-			return;
-		}
-		root = FindElem((*T)->lchild, e);
-	}
-	else
-	{
-		printf("元素已存在, 直接返回\n", e);
-		return;
-	}
-
+	TreeNodePtr root = FindElem(*T, e);
 	if (root == NULL)
 		return;
 
@@ -101,11 +77,33 @@ void InsertTree(TreeNodePtr* T, DataType e)
 	{
 		root->rchild = o;
 	}
-	else
+	else if (root->data > e)
 	{
 		root->lchild = o;
 	}
+	else
+	{
+		printf("Node already exists\n", e);
+		free(o);
+		o = NULL;
+		return;
+	}
 }
+
+
+/*若二叉树存在结点e, 则删除之并返回该结点的新植, 否则返回-1 */
+DataType DeleteNode(TreeNodePtr* T, DataType e)
+{
+	if (*T == NULL)
+		return -1;
+
+	TreeNodePtr root = FindElem(*T, e);
+	if (root == NULL)
+		return -1;
+
+	return;
+}
+
 
 /*判断二叉树是否为空, 空返回true, 否则false */
 bool TreeEmpty(TreeNodePtr T)
