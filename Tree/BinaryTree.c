@@ -132,11 +132,11 @@ void DeleteNode(TreeNodePtr* T, DataType e)
 		return;
 
 	if ((*T)->data == e)
-		return __delete(T);
+		__delete(T);
 	else if ((*T)->data > e)
-		return DeleteNode(&(*T)->lchild, e);
+		DeleteNode(&(*T)->lchild, e);
 	else
-		return DeleteNode(&(*T)->rchild, e);
+		DeleteNode(&(*T)->rchild, e);
 }
 
 
