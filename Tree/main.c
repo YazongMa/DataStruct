@@ -25,7 +25,12 @@ int main()
 	InsertTree(&T, 51);
 	InsertTree(&T, 93);
 	InsertTree(&T, 37);
-	DeleteNode(&T, 1);
+	InsertTree(&T, 48);
+	InsertTree(&T, 52);
+	InsertTree(&T, 100);
+	InsertTree(&T, 101);
+	InsertTree(&T, 102);
+	DeleteNode(&T, 100);
 	PreOrderTraverse(T);
 	printf("\n");
 	InOrderTraverse(T);

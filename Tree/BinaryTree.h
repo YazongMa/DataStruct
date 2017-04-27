@@ -28,8 +28,8 @@ void DestroyTree(TreeNodePtr* T);
 /*若二叉树存在, 插入值e */
 void InsertTree(TreeNodePtr* T, DataType e);
 
-/*若二叉树存在结点e, 则删除之并返回该结点的新植, 否则返回-1 */
-DataType DeleteNode(TreeNodePtr* T, DataType e);
+/*若二叉树存在结点e, 则删除之 */
+void DeleteNode(TreeNodePtr* T, DataType e);
 
 /*判断二叉树是否为空, 空返回true, 否则false */
 bool TreeEmpty(TreeNodePtr T);

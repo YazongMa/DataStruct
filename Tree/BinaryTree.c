@@ -91,17 +91,52 @@ void InsertTree(TreeNodePtr* T, DataType e)
 }
 
 
-/*若二叉树存在结点e, 则删除之并返回该结点的新植, 否则返回-1 */
-DataType DeleteNode(TreeNodePtr* T, DataType e)
+void __delete(TreeNodePtr* T)
+{
+	TreeNodePtr p = (*T)->lchild, q = (*T)->rchild;
+	// 删除结点, 接左子树
+	if (q == NULL)
+	{
+		free(*T);
+		*T = p;
+
+		return;
+	}
+
+	// 删除结点, 接右子树
+	if (p == NULL)
+	{
+		free(*T);
+		*T = q;
+
+		return;
+	}
+
+	// 将树T进行中序遍历后结点e的下一个结点f赋给e, 并删除f
+	while (q->lchild != NULL)
+	{
+		p = q;
+		q = q->lchild;
+	}
+
+	(*T)->data = q->data;
+	p->lchild = q->rchild;
+	free(q);
+}
+
+
+/*若二叉树存在结点e, 则删除之 */
+void DeleteNode(TreeNodePtr* T, DataType e)
 {
 	if (*T == NULL)
-		return -1;
+		return;
 
-	TreeNodePtr root = FindElem(*T, e);
-	if (root == NULL)
-		return -1;
-
-	return;
+	if ((*T)->data == e)
+		return __delete(T);
+	else if ((*T)->data > e)
+		return DeleteNode(&(*T)->lchild, e);
+	else
+		return DeleteNode(&(*T)->rchild, e);
 }
 
 
