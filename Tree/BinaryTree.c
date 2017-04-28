@@ -203,3 +203,111 @@ void PostOrderTraverse(TreeNodePtr T)
 	PostOrderTraverse(T->rchild);
 	printf("%d ", T->data);
 }
+
+typedef struct NodeStack
+{
+	TreeNodePtr			data;
+	struct NodeStack*	next;
+}NodeStack, *NodeStackPtr;
+
+
+typedef struct SeqStack
+{
+	NodeStackPtr		top;
+	int					count;
+}SeqStack, *SeqStackPtr;
+
+void init_stack(SeqStackPtr S)
+{
+	S->top = NULL;
+	S->count = 0;
+}
+
+
+void push_stack(SeqStackPtr S, TreeNodePtr T)
+{
+	NodeStackPtr node = (NodeStackPtr)malloc(sizeof(NodeStack));
+	node->data = T;
+	node->next = S->top;
+
+	S->top = node;
+	++S->count;
+}
+
+
+TreeNodePtr pop_stack(SeqStackPtr S)
+{
+	NodeStackPtr top = S->top;
+	TreeNodePtr node = top->data;
+
+	S->top = top->next;
+	free(top);
+	--S->count;
+
+	return node;
+}
+
+
+/* 初始条件: 二叉树T存在 */
+/* 操作结果: 前序循环遍历T */
+void PreOrderLoop(TreeNodePtr T)
+{
+	if (!T) return;
+	SeqStack s;
+	init_stack(&s);
+
+	while (T || s.count != 0)
+	{
+		while (T)
+		{
+			printf("%d ", T->data);
+			push_stack(&s, T);
+			T = T->lchild;
+		}
+
+		T = pop_stack(&s);
+		T = T->rchild;
+	}
+	printf("\n");
+}
+
+/* 初始条件: 二叉树T存在 */
+/* 操作结果: 中序循环遍历T */
+void InOrderLoop(TreeNodePtr T)
+{
+	if (!T) return;
+	SeqStack s;
+	init_stack(&s);
+
+	while (T || s.count != 0)
+	{
+		while (T)
+		{
+			push_stack(&s, T);
+			T = T->lchild;
+		}
+
+		T = pop_stack(&s);
+		printf("%d ", T->data);
+		T = T->rchild;
+	}
+	printf("\n");
+}
+
+/* 初始条件: 二叉树T存在 */
+/* 操作结果: 后序循环遍历T */
+void PostOrderLoop(TreeNodePtr T)
+{
+
+}
+
+
+/* 初始条件: 二叉树T存在 */
+/* 操作结果: 层序遍历 */
+void LevelPrint(TreeNodePtr T)
+{
+	if (!T) return;
+	printf("%d ", T->data);
+	LevelPrint(T->lchild);
+	LevelPrint(T->rchild);
+}

@@ -56,4 +56,21 @@ void InOrderTraverse(TreeNodePtr T);
 /* 操作结果: 后序递归遍历T */
 void PostOrderTraverse(TreeNodePtr T);
 
+
+/* 初始条件: 二叉树T存在 */
+/* 操作结果: 前序循环遍历T */
+void PreOrderLoop(TreeNodePtr T);
+
+/* 初始条件: 二叉树T存在 */
+/* 操作结果: 中序循环遍历T */
+void InOrderLoop(TreeNodePtr T);
+
+/* 初始条件: 二叉树T存在 */
+/* 操作结果: 后序循环遍历T */
+void PostOrderLoop(TreeNodePtr T);
+
+/* 初始条件: 二叉树T存在 */
+/* 操作结果: 层序遍历 */
+void LevelPrint(TreeNodePtr T);
+
 #endif

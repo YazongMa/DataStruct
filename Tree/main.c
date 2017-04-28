@@ -30,13 +30,26 @@ int main()
 	InsertTree(&T, 100);
 	InsertTree(&T, 101);
 	InsertTree(&T, 102);
+	InsertTree(&T, 31);
+
+	//删除结点
 	DeleteNode(&T, 100);
+
+	//前序递归遍历
 	PreOrderTraverse(T);
 	printf("\n");
+
+	//前序循环遍历
+	PreOrderLoop(T);
+
 	InOrderTraverse(T);
 	printf("\n");
+	//中序循环遍历
+	InOrderLoop(T);
+
 	PostOrderTraverse(T);
 	printf("\n");
+
 	DestroyTree(&T);
 	return 0;
 }
