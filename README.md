@@ -1,4 +1,3 @@
-# DataStruct
 # 1. list 链表
 # 2. stack 栈(后进先出 LIFO队列)
 # 3. queue 队列(先进先出 FIFO队列)
