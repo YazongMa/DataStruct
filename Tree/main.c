@@ -44,6 +44,7 @@ int main()
 
 	InOrderTraverse(T);
 	printf("\n");
+	
 	//ÖĞĞòÑ­»·±éÀú
 	InOrderLoop(T);
 

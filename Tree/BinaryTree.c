@@ -217,8 +217,8 @@ void PostOrderTraverse(TreeNodePtr T)
 }
 
 
-/* 循环遍历树结点 */
-#pragma region 循环遍历
+
+#pragma region TREE_NODE_STACK_OP
 
 /*栈结构--结点--开始 */
 typedef struct NodeStack
@@ -272,67 +272,10 @@ TreeNodePtr pop_stack(SeqStackPtr S)
 
 	return node;
 }
-
-
-/* 初始条件: 二叉树T存在 */
-/* 操作结果: 前序循环遍历T */
-void PreOrderLoop(TreeNodePtr T)
-{
-	if (!T) return;
-	SeqStack s;
-	init_stack(&s);
-
-	while (T || s.count != 0)
-	{
-		while (T)
-		{
-			printf("%d ", T->data);
-			push_stack(&s, T);
-			T = T->lchild;
-		}
-
-		T = pop_stack(&s);
-		T = T->rchild;
-	}
-	printf("\n");
-}
-
-/* 初始条件: 二叉树T存在 */
-/* 操作结果: 中序循环遍历T */
-void InOrderLoop(TreeNodePtr T)
-{
-	if (!T) return;
-	SeqStack s;
-	init_stack(&s);
-
-	while (T || s.count != 0)
-	{
-		while (T)
-		{
-			push_stack(&s, T);
-			T = T->lchild;
-		}
-
-		T = pop_stack(&s);
-		printf("%d ", T->data);
-		T = T->rchild;
-	}
-	printf("\n");
-}
-
-/* 初始条件: 二叉树T存在 */
-/* 操作结果: 后序循环遍历T */
-void PostOrderLoop(TreeNodePtr T)
-{
-
-}
-
 #pragma endregion
 
 
-
-#pragma region 层序遍历
-
+#pragma region TREE_NODE_QUEUE_OP
 /*队列结构--结点--开始 */
 typedef struct SeqQueue
 {
@@ -388,14 +331,87 @@ TreeNodePtr pop_queue(SeqQueuePtr Q)
 
 	return data;
 }
+#pragma endregion
 
 
-/*树节点先进先出,   */
+/* 初始条件: 二叉树T存在 */
+/* 操作结果: 前序循环遍历T */
+void PreOrderLoop(TreeNodePtr T)
+{
+	if (!T) return;
+	SeqStack S;
+	init_stack(&S);
+
+	while (T || S.count != 0)
+	{
+		while (T)
+		{
+			printf("%d ", T->data);
+			push_stack(&S, T);
+			T = T->lchild;
+		}
+
+		T = pop_stack(&S);
+		T = T->rchild;
+	}
+	printf("\n");
+}
+
+/* 初始条件: 二叉树T存在 */
+/* 操作结果: 中序循环遍历T */
+void InOrderLoop(TreeNodePtr T)
+{
+	if (!T) return;
+	SeqStack S;
+	init_stack(&S);
+
+	while (T || S.count != 0)
+	{
+		while (T)
+		{
+			push_stack(&S, T);
+			T = T->lchild;
+		}
+
+		T = pop_stack(&S);
+		printf("%d ", T->data);
+		T = T->rchild;
+	}
+	printf("\n");
+}
+
+/* 初始条件: 二叉树T存在 */
+/* 操作结果: 后序循环遍历T */
+void PostOrderLoop(TreeNodePtr T)
+{
+	if (!T) return;
+	SeqStack S;
+	init_stack(&S);
+
+	while (T || S.count != 0)
+	{
+		while (T)
+		{
+			push_stack(&S, T);
+			T = T->lchild;
+		}
+
+		T = pop_stack(&S);
+		printf("%d ", T->data);
+		T = T->rchild;
+	}
+	printf("\n");
+}
+
+
+/*层序遍历 树节点先进先出 */
 void LevelTraversal(TreeNodePtr T)
 {
+	if (!T) return;
+
 	SeqQueue Q;
 	init_queue(&Q);
-	
+
 	while (1)
 	{
 		/*根结点输出 */
@@ -425,5 +441,3 @@ void LevelTraversal(TreeNodePtr T)
 	printf("\n");
 }
 
-/*队列结构--结点--结束 */
-#pragma endregion
