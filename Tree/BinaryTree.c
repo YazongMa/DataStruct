@@ -327,16 +327,6 @@ void PostOrderLoop(TreeNodePtr T)
 
 }
 
-
-/* 初始条件: 二叉树T存在 */
-/* 操作结果: 层序遍历 */
-void LevelPrint(TreeNodePtr T)
-{
-	if (!T) return;
-	printf("%d ", T->data);
-	LevelPrint(T->lchild);
-	LevelPrint(T->rchild);
-}
 #pragma endregion
 
 
