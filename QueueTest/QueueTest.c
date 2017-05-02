@@ -55,8 +55,8 @@ int PushBack(QueueTestPtr Q, DataType e)
 {
 	QueueNodePtr o = (QueueNodePtr)calloc(1, sizeof(QueueNode));
 	o->data = e;
-	Q->rear->next = o;
-	Q->rear = o;
+	Q->back->next = o;
+	Q->back = o;
 	Q->count++;
 
 	return 0;

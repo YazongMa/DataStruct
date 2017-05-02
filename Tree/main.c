@@ -24,13 +24,13 @@ int main()
 	InsertTree(&T, 35);
 	InsertTree(&T, 51);
 	InsertTree(&T, 93);
+	InsertTree(&T, 100);
+	InsertTree(&T, 31);
 	InsertTree(&T, 37);
 	InsertTree(&T, 48);
 	InsertTree(&T, 52);
-	InsertTree(&T, 100);
 	InsertTree(&T, 101);
 	InsertTree(&T, 102);
-	InsertTree(&T, 31);
 
 	//删除结点
 	DeleteNode(&T, 100);
@@ -50,6 +50,13 @@ int main()
 	PostOrderTraverse(T);
 	printf("\n");
 
+	//层序遍历
+	LevelTraversal(T);
+	
+
+	printf("Node count: %d\n", NodeCount(T));
+	//销毁树
 	DestroyTree(&T);
+
 	return 0;
 }

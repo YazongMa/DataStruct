@@ -34,6 +34,9 @@ void DeleteNode(TreeNodePtr* T, DataType e);
 /*判断二叉树是否为空, 空返回true, 否则false */
 bool TreeEmpty(TreeNodePtr T);
 
+/*若二叉树存在, 输出其结点个数 */
+int NodeCount(TreeNodePtr T);
+
 /* 初始条件: 二叉树T存在。操作结果: 返回T的深度 */
 DataType TreeDepth(TreeNodePtr T);
 
@@ -71,6 +74,6 @@ void PostOrderLoop(TreeNodePtr T);
 
 /* 初始条件: 二叉树T存在 */
 /* 操作结果: 层序遍历 */
-void LevelPrint(TreeNodePtr T);
+void LevelTraversal(TreeNodePtr T);
 
 #endif

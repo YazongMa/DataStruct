@@ -148,6 +148,18 @@ bool TreeEmpty(TreeNodePtr T)
 	return false;
 }
 
+/*若二叉树存在, 输出其结点个数 */
+int NodeCount(TreeNodePtr T)
+{
+	if (T == NULL)
+		return 0;
+
+	int l = NodeCount(T->lchild);
+	int r = NodeCount(T->rchild);
+
+	return l + r + 1;
+}
+
 /* 初始条件: 二叉树T存在。操作结果: 返回T的深度 */
 DataType TreeDepth(TreeNodePtr T)
 {
@@ -204,6 +216,11 @@ void PostOrderTraverse(TreeNodePtr T)
 	printf("%d ", T->data);
 }
 
+
+/* 循环遍历树结点 */
+#pragma region 循环遍历
+
+/*栈结构--结点--开始 */
 typedef struct NodeStack
 {
 	TreeNodePtr			data;
@@ -222,10 +239,14 @@ void init_stack(SeqStackPtr S)
 	S->top = NULL;
 	S->count = 0;
 }
+/*栈结构--结点--结束 */
 
 
+/*结点--栈结构操作:入栈 */
 void push_stack(SeqStackPtr S, TreeNodePtr T)
 {
+	if (!T)	return;
+
 	NodeStackPtr node = (NodeStackPtr)malloc(sizeof(NodeStack));
 	node->data = T;
 	node->next = S->top;
@@ -235,13 +256,18 @@ void push_stack(SeqStackPtr S, TreeNodePtr T)
 }
 
 
+/*结点--栈结构操作:出栈 */
 TreeNodePtr pop_stack(SeqStackPtr S)
 {
+	if (S->count <= 0)	return NULL;
+
 	NodeStackPtr top = S->top;
 	TreeNodePtr node = top->data;
 
 	S->top = top->next;
 	free(top);
+
+	top = NULL;
 	--S->count;
 
 	return node;
@@ -311,3 +337,103 @@ void LevelPrint(TreeNodePtr T)
 	LevelPrint(T->lchild);
 	LevelPrint(T->rchild);
 }
+#pragma endregion
+
+
+
+#pragma region 层序遍历
+
+/*队列结构--结点--开始 */
+typedef struct SeqQueue
+{
+	NodeStackPtr		back;
+	NodeStackPtr		front;
+	int					count;
+}SeqQueue, *SeqQueuePtr;
+
+
+void init_queue(SeqQueuePtr Q)
+{
+	Q->back = NULL;
+	Q->front = NULL;
+	Q->count = 0;
+}
+
+
+void push_queue(SeqQueuePtr Q, TreeNodePtr T)
+{
+	if (!T)	return;
+
+	NodeStackPtr node = (NodeStackPtr)malloc(sizeof(NodeStack));
+	node->data = T;
+	node->next = NULL;
+
+	if (Q->count == 0)
+	{
+		Q->front = node;
+		Q->back = node;
+	}
+	else
+	{
+		Q->back->next = node;
+		Q->back = node;
+	}
+
+	++Q->count;
+}
+
+
+TreeNodePtr pop_queue(SeqQueuePtr Q)
+{
+	if (Q->count <= 0)	return NULL;
+
+	NodeStackPtr node = Q->front;
+	TreeNodePtr data = node->data;
+
+	Q->front = node->next;
+	--Q->count;
+
+	free(node);
+	node = NULL;
+
+	return data;
+}
+
+
+/*树节点先进先出,   */
+void LevelTraversal(TreeNodePtr T)
+{
+	SeqQueue Q;
+	init_queue(&Q);
+	
+	while (1)
+	{
+		/*根结点输出 */
+		if (Q.count == 0)
+		{
+			printf("%d ", T->data);
+			if (T->lchild != NULL)
+				push_queue(&Q, T->lchild);
+			if (T->rchild != NULL)
+				push_queue(&Q, T->rchild);
+		}
+
+		int i = 0, cnt = Q.count;
+		for (; i < cnt; ++i)
+		{
+			TreeNodePtr data = pop_queue(&Q);
+			if (data->lchild != NULL)
+				push_queue(&Q, data->lchild);
+			if (data->rchild != NULL)
+				push_queue(&Q, data->rchild);
+			printf("%d ", data->data);
+		}
+
+		if (Q.count == 0)
+			break;
+	}
+	printf("\n");
+}
+
+/*队列结构--结点--结束 */
+#pragma endregion
