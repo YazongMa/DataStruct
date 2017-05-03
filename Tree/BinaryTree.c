@@ -431,8 +431,10 @@ void PostOrderLoop(TreeNodePtr T)
 			//将栈顶赋给p
 			p = top_stack(&S);
 
-			//如果p的右子树为空, 或者p已经输出, 则输出p结点. 并把r指向p, p置为空;
+			//如果p的右子树为空值, 则输出p结点. 并把r指向p, p置为空;
+			//如果p的右子树已输出, 则输出p结点. 并把r指向p, p置为空;
 			//否则将其右子树入栈, 并将左子树赋给p, 进行下一轮循环
+			//其中r表示上一次输出的结点
 			if (!p->rchild || p->rchild == r)
 			{
 				r = pop_stack(&S);
