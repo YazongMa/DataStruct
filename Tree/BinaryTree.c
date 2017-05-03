@@ -272,6 +272,32 @@ TreeNodePtr pop_stack(SeqStackPtr S)
 
 	return node;
 }
+
+ 
+TreeNodePtr top_stack(SeqStackPtr S)
+{
+	if (S->count <= 0)	return NULL;
+	return S->top->data;
+}
+
+
+void __print_stack(NodeStackPtr node)
+{
+	if (!node) return;
+
+	printf("%d ", node->data->data);
+	__print_stack(node->next);
+}
+
+void print_stack(SeqStackPtr S)
+{
+	if (!S) return;
+
+	static int i = 0;
+	printf("loop[%02d]: ", ++i);
+	__print_stack(S->top);
+	printf("\n");
+}
 #pragma endregion
 
 
@@ -385,21 +411,45 @@ void InOrderLoop(TreeNodePtr T)
 void PostOrderLoop(TreeNodePtr T)
 {
 	if (!T) return;
+
 	SeqStack S;
 	init_stack(&S);
 
-	while (T || S.count != 0)
+	TreeNodePtr p = T, r = NULL;
+	while (p || S.count > 0)
 	{
-		while (T)
+		//p 不为空, 将结点p入栈, 进行下一轮循环, 直至左子树全部入栈
+		if (p)
 		{
-			push_stack(&S, T);
-			T = T->lchild;
+			push_stack(&S, p);
+			p = p->lchild;
 		}
 
-		T = pop_stack(&S);
-		printf("%d ", T->data);
-		T = T->rchild;
+		//p 为空
+		else
+		{
+			//将栈顶赋给p
+			p = top_stack(&S);
+
+			//如果p的右子树为空, 或者p已经输出, 则输出p结点. 并把r指向p, p置为空;
+			//否则将其右子树入栈, 并将左子树赋给p, 进行下一轮循环
+			if (!p->rchild || p->rchild == r)
+			{
+				r = pop_stack(&S);
+				printf("%d ", p->data);
+
+				r = p;
+				p = NULL;
+			}
+			else
+			{
+				p = p->rchild;
+				push_stack(&S, p);
+				p = p->lchild;
+			}
+		}
 	}
+
 	printf("\n");
 }
 

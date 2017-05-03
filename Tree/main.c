@@ -42,14 +42,19 @@ int main()
 	//前序循环遍历
 	PreOrderLoop(T);
 
+	//中序递归遍历
 	InOrderTraverse(T);
 	printf("\n");
 	
 	//中序循环遍历
 	InOrderLoop(T);
 
+	//后序递归遍历
 	PostOrderTraverse(T);
 	printf("\n");
+
+	//后序循环遍历
+	PostOrderLoop(T);
 
 	//层序遍历
 	LevelTraversal(T);
