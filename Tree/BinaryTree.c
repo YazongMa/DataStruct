@@ -281,6 +281,21 @@ TreeNodePtr top_stack(SeqStackPtr S)
 }
 
 
+void __free_stack(NodeStackPtr node)
+{
+	if (!node) return;
+
+	__free_stack(node->next);
+	free(node);
+	node = NULL;
+}
+void free_stack(SeqStackPtr S)
+{
+	if (!S)	return;
+	__free_stack(S->top);
+}
+
+
 void __print_stack(NodeStackPtr node)
 {
 	if (!node) return;
@@ -454,7 +469,7 @@ void PostOrderLoop(TreeNodePtr T)
 	printf("\n");
 }
 
-
+#define D_Test
 void PostOrderLoop2(TreeNodePtr T)
 {
 	TreeNodePtr cur = T, pre = NULL;
@@ -466,7 +481,9 @@ void PostOrderLoop2(TreeNodePtr T)
 	push_stack(&S, cur);
 	while (S.count > 0)
 	{
-		//print_stack(&S);
+#ifdef D_Test
+		print_stack(&S);
+#endif
 
 		//取栈顶
 		cur = top_stack(&S);
@@ -478,8 +495,11 @@ void PostOrderLoop2(TreeNodePtr T)
 			(pre != NULL && (cur->lchild == pre || cur->rchild == pre)))
 		{
 			cur = pop_stack(&S);
-			//push_stack(&S2, cur);
+#ifdef D_Test
+			push_stack(&S2, cur);
+#else
 			printf("%d ", cur->data);
+#endif
 			pre = cur;
 		}
 		else
@@ -491,7 +511,10 @@ void PostOrderLoop2(TreeNodePtr T)
 		}
 	}
 
-	//print_stack(&S2);
+#ifdef D_Test
+	print_stack(&S2);
+	free_stack(&S2);
+#endif
 	printf("\n");
 }
 
