@@ -71,6 +71,7 @@ void InOrderLoop(TreeNodePtr T);
 /* 初始条件: 二叉树T存在 */
 /* 操作结果: 后序循环遍历T */
 void PostOrderLoop(TreeNodePtr T);
+void PostOrderLoop2(TreeNodePtr T);
 
 /* 初始条件: 二叉树T存在 */
 /* 操作结果: 层序遍历 */

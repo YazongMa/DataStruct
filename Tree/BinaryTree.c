@@ -285,8 +285,8 @@ void __print_stack(NodeStackPtr node)
 {
 	if (!node) return;
 
-	printf("%d ", node->data->data);
 	__print_stack(node->next);
+	printf("%d ", node->data->data);
 }
 
 void print_stack(SeqStackPtr S)
@@ -294,7 +294,6 @@ void print_stack(SeqStackPtr S)
 	if (!S) return;
 
 	static int i = 0;
-	printf("loop[%02d]: ", ++i);
 	__print_stack(S->top);
 	printf("\n");
 }
@@ -452,6 +451,47 @@ void PostOrderLoop(TreeNodePtr T)
 		}
 	}
 
+	printf("\n");
+}
+
+
+void PostOrderLoop2(TreeNodePtr T)
+{
+	TreeNodePtr cur = T, pre = NULL;
+	SeqStack S, S2;
+	init_stack(&S);
+	init_stack(&S2);
+
+	//根节点入栈
+	push_stack(&S, cur);
+	while (S.count > 0)
+	{
+		//print_stack(&S);
+
+		//取栈顶
+		cur = top_stack(&S);
+
+		//如果左右子树均不为空, 则出栈并输出, 将pre指向当前输出的结点
+		//如果左右子树均已输出, 则出栈并输出, 将pre指向当前输出的结点
+		//否则先将右子树入栈, 再将左子树入栈
+		if ((cur->lchild == NULL && cur->rchild == NULL) ||
+			(pre != NULL && (cur->lchild == pre || cur->rchild == pre)))
+		{
+			cur = pop_stack(&S);
+			//push_stack(&S2, cur);
+			printf("%d ", cur->data);
+			pre = cur;
+		}
+		else
+		{
+			if (cur->rchild)
+				push_stack(&S, cur->rchild);
+			if (cur->lchild)
+				push_stack(&S, cur->lchild);
+		}
+	}
+
+	//print_stack(&S2);
 	printf("\n");
 }
 

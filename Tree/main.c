@@ -55,6 +55,7 @@ int main()
 
 	//后序循环遍历
 	PostOrderLoop(T);
+	PostOrderLoop2(T);
 
 	//层序遍历
 	LevelTraversal(T);
