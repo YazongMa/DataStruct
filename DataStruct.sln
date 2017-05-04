@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SortTest", "SortTest\SortTest.vcxproj", "{BE222CC2-5FAB-490A-8E53-9C851CAF8E50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -44,6 +46,10 @@ Global
 		{D19536F3-B4A6-4EB6-8595-20FCE7A2A49E}.Debug|Win32.Build.0 = Debug|Win32
 		{D19536F3-B4A6-4EB6-8595-20FCE7A2A49E}.Release|Win32.ActiveCfg = Release|Win32
 		{D19536F3-B4A6-4EB6-8595-20FCE7A2A49E}.Release|Win32.Build.0 = Release|Win32
+		{BE222CC2-5FAB-490A-8E53-9C851CAF8E50}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BE222CC2-5FAB-490A-8E53-9C851CAF8E50}.Debug|Win32.Build.0 = Debug|Win32
+		{BE222CC2-5FAB-490A-8E53-9C851CAF8E50}.Release|Win32.ActiveCfg = Release|Win32
+		{BE222CC2-5FAB-490A-8E53-9C851CAF8E50}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
